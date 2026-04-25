@@ -38,12 +38,45 @@ class Student {
   }
 }
 
-class Course {}
+class Course {
+  constructor(title) {
+    this.title = title;
+    this.students = [];
+  }
+  enrollStudent(student) {
+    this.students.push(student);
+  }
+  listStudents() {
+    this.students.forEach((student) => {
+      console.log(student.name);
+    });
+  }
+  calculateCourseAverage() {
+    if (this.students.length === 0) {
+      return 0;
+    } else {
+      let averageGrade = [];
+      this.students.forEach((student) => {
+        averageGrade.push(student.calculateAverage());
+      });
+      let sum = averageGrade.reduce((acc, curr) => {
+        return (acc = acc + curr);
+      }, 0);
+      return sum / averageGrade.length;
+    }
+  }
+}
 
+const anotherStudent = new Student("mike", 1);
 const newStudent = new Student("andrew", 380);
+const newCourse = new Course("Mathematics");
 
 newStudent.addGrade(40);
 newStudent.addGrade(60);
 newStudent.addGrade(70);
 
-console.log(newStudent.hasPassed(30));
+newCourse.enrollStudent(newStudent);
+newCourse.enrollStudent(anotherStudent);
+
+// console.log(newCourse);
+console.log(newCourse.calculateCourseAverage());
