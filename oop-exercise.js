@@ -66,17 +66,3 @@ class Course {
     }
   }
 }
-
-const anotherStudent = new Student("mike", 1);
-const newStudent = new Student("andrew", 380);
-const newCourse = new Course("Mathematics");
-
-newStudent.addGrade(40);
-newStudent.addGrade(60);
-newStudent.addGrade(70);
-
-newCourse.enrollStudent(newStudent);
-newCourse.enrollStudent(anotherStudent);
-
-// console.log(newCourse);
-console.log(newCourse.calculateCourseAverage());

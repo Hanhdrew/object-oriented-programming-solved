@@ -27,8 +27,11 @@ class Book {
   }
 }
 
-const myBook = new Book("the great andrew", "andrew", 2026, "bio");
+const newBook = new Book("To kill a Mokingbird", "Harper Lee", 1960, "Fiction");
 
-console.log(myBook);
-
-console.log(myBook.isClassic());
+console.log(
+  newBook.getSummary(),
+  newBook.isClassic(),
+  newBook.updateYear(1970),
+  newBook.changeGenre("Horror"),
+);
